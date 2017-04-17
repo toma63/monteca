@@ -3,7 +3,6 @@ package monteca
 
 import ("math/rand"
 	"time"
-	//"fmt"
 )
 
 const (
@@ -34,9 +33,7 @@ func makeRandCABoard() []float64 {
 		// bet on a given square based on a coin flip
 		if r.Uint32() & 0x00000001 == 1 {
 			cboard[i] = r.Float64() * MAXBET
-			//fmt.Printf("bet for %d is %5.2f\n", i, cboard[i])
 		} else {
-			//fmt.Printf("no bet for %d\n", i)
 			cboard[i] = 0.0
 		}
 	}
