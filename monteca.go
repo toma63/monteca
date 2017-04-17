@@ -55,7 +55,7 @@ func rollOne() int32 {
 }
 
 // individual worker
-// compute winnings for bank and player
+// compute the amount of bet money retained by player and bank
 // accumulate results for runtime minutes
 func caWorker(resultCh chan winnings, trialsCh chan int64, runtime int) {
 
@@ -77,7 +77,7 @@ func caWorker(resultCh chan winnings, trialsCh chan int64, runtime int) {
 		for i := 0 ; i < 6 ; i++ {
 			if hits[i] > 0.99 {
 				won := hits[i] * board[i]
-				result.player += won
+				result.player += won + board[i]
 				result.bank -= won
 			} else {
 				result.bank += board[i]
